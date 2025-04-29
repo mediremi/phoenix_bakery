@@ -40,8 +40,8 @@ defmodule PhoenixBakery.Zstd do
     options = options(:zstd, @default_opts)
 
     cond do
-      Code.ensure_loaded?(:ezstd) and function_exported?(:ezstd, :compress, 1) ->
-        {:ok, :ezstd.compress(content, options.level)}
+      Code.ensure_loaded?(:ezstd) and function_exported?(:ezstd, :compress, 2) ->
+        {:ok, apply(:ezstd, :compress, [content, options.level])}
 
       path = find_executable(:zstd) ->
         run(:zstd, content, path, ~w[-c --ultra -#{options.level}])
