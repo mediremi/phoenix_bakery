@@ -1,5 +1,5 @@
 %{
-  "brotli": {:hex, :brotli, "0.3.1", "72b4f4d2c02d31ee9a62e87f33f33e3a4b24b3e78649d60786f5285b940a2992", [:rebar3], [], "hexpm", "cba6f04cc34015523d7dccf5b980ee596560dcc898d6a520e42fd0e8e737b4d8"},
+  "brotli": {:hex, :brotli, "0.3.2", "59cf45a399098516f1d34f70d8e010e5c9bf326659d3ef34c7cc56793339002b", [:rebar3], [], "hexpm", "9ec3ef9c753f80d0c657b4905193c55e5198f169fa1d1c044d8601d4d931a2ad"},
   "bunt": {:hex, :bunt, "0.2.1", "e2d4792f7bc0ced7583ab54922808919518d0e57ee162901a16a1b6664ef3b14", [:mix], [], "hexpm", "a330bfb4245239787b15005e66ae6845c9cd524a288f0d141c148b02603777a5"},
   "castore": {:hex, :castore, "1.0.0", "c25cd0794c054ebe6908a86820c8b92b5695814479ec95eeff35192720b71eec", [:mix], [], "hexpm", "577d0e855983a97ca1dfa33cbb8a3b6ece6767397ffb4861514343b078fc284b"},
   "credo": {:hex, :credo, "1.6.7", "323f5734350fd23a456f2688b9430e7d517afb313fbd38671b8a4449798a7854", [:mix], [{:bunt, "~> 0.2.1", [hex: :bunt, repo: "hexpm", optional: false]}, {:file_system, "~> 0.2.8", [hex: :file_system, repo: "hexpm", optional: false]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "41e110bfb007f7eda7f897c10bf019ceab9a0b269ce79f015d54b0dcf4fc7dd3"},
