@@ -40,8 +40,8 @@ defmodule PhoenixBakery.Brotli do
 
   defp encode(content, options) do
     cond do
-      Code.ensure_loaded?(:brotli) and function_exported?(:brotli, :encode, 1) ->
-        :brotli.encode(content, %{quality: options.quality})
+      Code.ensure_loaded?(:brotli) and function_exported?(:brotli, :encode, 2) ->
+        apply(:brotli, :encode, [content, %{quality: options.quality}])
 
       path = find_executable(:brotli) ->
         run(:brotli, content, path, ~w[-c -q #{options.quality}])
