@@ -49,7 +49,7 @@ defmodule PhoenixBakery.MixProject do
     [
       {:phoenix, "~> 1.6"},
       {:brotli, "~> 0.3.0", optional: true},
-      {:ezstd, "~> 1.0", optional: true},
+      {:ezstd, "~> 1.2.1", optional: true},
       {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: [:dev]},
       {:credo, "~> 1.5", only: [:dev]}
