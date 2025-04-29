@@ -1,29 +1,21 @@
 defmodule PhoenixBakery.MixProject do
   use Mix.Project
 
-  @description File.read!("README.md")
-               |> String.split(~r/<!--\s*(start|end):PhoenixBakery\s*-->/, parts: 3)
-               |> Enum.at(1)
-               |> String.trim()
-               |> String.split(~r/\n/, parts: 2)
-               |> List.first()
-
+  @version "0.2.0"
   @github "https://github.com/hauleth/phoenix_bakery"
 
   def project do
-    version = version()
-
     [
       app: :phoenix_bakery,
-      description: @description,
-      version: version,
+      description: "Better compression for your Phoenix assets.",
+      version: @version,
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       source_url: @github,
       docs: [
         main: "PhoenixBakery",
-        source_ref: "v#{version}",
+        source_ref: "v#{@version}",
         groups_for_modules: [
           Compressors: ~r/^PhoenixBakery\./
         ]
@@ -54,32 +46,5 @@ defmodule PhoenixBakery.MixProject do
       {:ex_doc, ">= 0.0.0", only: [:dev]},
       {:credo, "~> 1.5", only: [:dev]}
     ]
-  end
-
-  defp version do
-    with :error <- hex_version(),
-         :error <- git_version() do
-      "0.0.0-dev"
-    else
-      {:ok, ver} -> ver
-    end
-  end
-
-  defp hex_version do
-    with {:ok, terms} <- :file.consult("hex_metadata.config"),
-         {"version", version} <- List.keyfind(terms, "version", 0) do
-      {:ok, version}
-    else
-      _ -> :error
-    end
-  end
-
-  defp git_version do
-    System.cmd("git", ~w[describe])
-  else
-    {"v" <> ver, 0} -> {:ok, String.trim(ver)}
-    _ -> :error
-  catch
-    _, _ -> :error
   end
 end
