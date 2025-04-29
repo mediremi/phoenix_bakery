@@ -25,17 +25,11 @@ And configure your `Plug.Static`:
 
 ```elixir
 plug Plug.Static,
-  encodings: [{"zstd", ".zstd"}],
+  encodings: [{"zstd", ".zst"}],
   gzip: true,
   brotli: true,
   # Rest of the options…
 ```
-
-> #### WARNING {: .warning }
->
-> Plug 1.12 do not support `:encodings` option and this option is ignored.
-> So Zstandard-compressed files will not be served to the clients, even
-> if client will have support for such format.
 
 Then you need to configure your compressors via Phoenix configuration:
 
@@ -49,7 +43,6 @@ config :phoenix,
   ]
 ```
 
-[pr-1050]: https://github.com/elixir-plug/plug/pull/1050
 <!-- end:PhoenixBakery -->
 
 ## Supported compressors
@@ -62,7 +55,7 @@ compression ratio (defaults to maximum possible) instead of default option that
 compromises between compression speed and compression ratio.
 
 It uses built-in `zlib` library, which mean, that there is no external
-dependencies and it will work OotB on any installation.
+dependencies and it will work out-of-the-box on any installation.
 
 #### Configuration
 
@@ -121,8 +114,7 @@ config :phoenix_bakery,
 <!-- start:PhoenixBakery.Zstd -->
 [Zstandard][zstd] is algorithm that offers quite good compression ratio when
 compared with Gzip, but slightly worse than Brotli, but with much better
-decompression speed. It is currently not supported by browsers, but is already
-IANA standard, so the rollout of the support should be pretty fast.
+decompression speed. [It currently has limited availability across major browsers.](https://caniuse.com/zstd)
 
 [zstd]: https://datatracker.ietf.org/doc/html/rfc8878
 
