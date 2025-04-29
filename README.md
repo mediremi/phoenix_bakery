@@ -55,7 +55,7 @@ compression ratio (defaults to maximum possible) instead of default option that
 compromises between compression speed and compression ratio.
 
 It uses built-in `zlib` library, which mean, that there is no external
-dependencies and it will work OotB on any installation.
+dependencies and it will work out-of-the-box on any installation.
 
 #### Configuration
 
