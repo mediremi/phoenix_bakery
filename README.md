@@ -31,12 +31,6 @@ plug Plug.Static,
   # Rest of the options…
 ```
 
-> #### WARNING {: .warning }
->
-> Plug 1.12 do not support `:encodings` option and this option is ignored.
-> So Zstandard-compressed files will not be served to the clients, even
-> if client will have support for such format.
-
 Then you need to configure your compressors via Phoenix configuration:
 
 ```elixir
@@ -49,7 +43,6 @@ config :phoenix,
   ]
 ```
 
-[pr-1050]: https://github.com/elixir-plug/plug/pull/1050
 <!-- end:PhoenixBakery -->
 
 ## Supported compressors
