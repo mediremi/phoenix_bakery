@@ -114,8 +114,7 @@ config :phoenix_bakery,
 <!-- start:PhoenixBakery.Zstd -->
 [Zstandard][zstd] is algorithm that offers quite good compression ratio when
 compared with Gzip, but slightly worse than Brotli, but with much better
-decompression speed. It is currently not supported by browsers, but is already
-IANA standard, so the rollout of the support should be pretty fast.
+decompression speed. [It currently has limited availability across major browsers.](https://caniuse.com/zstd)
 
 [zstd]: https://datatracker.ietf.org/doc/html/rfc8878
 
