@@ -29,6 +29,13 @@ defmodule PhoenixBakery.Brotli do
   defp compress(content) do
     options = options(:brotli, @default_opts)
 
+    options =
+      if byte_size(content) > 10 * 1024 * 1024 do
+        %{options | quality: min(options.quality, 9)}
+      else
+        options
+      end
+
     case encode(content, options) do
       {:ok, compressed} when byte_size(compressed) < byte_size(content) ->
         {:ok, compressed}
